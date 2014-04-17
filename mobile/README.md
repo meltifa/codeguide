@@ -47,7 +47,7 @@ iOS 4.0+ 使用英文字体 Helvetica Neue，之前的iOS版本降级使用 Helv
 
 中文字体设置为华文黑体STHeiTi。
 
-需补充说明，华文黑体并不存在iOS的字体库中(http://support.apple.com/kb/HT5484?viewlocale=en_US)，
+需补充说明，华文黑体并不存在iOS的字体库中（ http://support.apple.com/kb/HT5484?viewlocale=en_US ），
 但系统会自动将华文黑体STHeiTi兼容命中系统默认中文字体黑体-简或黑体-繁：
 
 ```
