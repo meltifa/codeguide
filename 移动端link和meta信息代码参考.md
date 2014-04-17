@@ -1,3 +1,11 @@
+### 禁用浏览器自动检测网页中可能的电话号码
+
+```html
+<meta name="format-detection" content="telephone=no">
+```
+
+默认为启用，如果需要禁用此功能则需要加如上代码
+
 ### 可视区域（viewport）大小设置
 
 ```html
@@ -5,15 +13,15 @@
 ```
 
 * `width`：控制 viewport 的大小，可以指定一个值，如 600，`device-width` 为当前设备的屏幕宽度，如无特殊需要，推荐使用 `device-width`
-* `height`：和 `width` 相对应，指定高度，一般不需要设置
+* `height`：和 `width` 相对应，指定高度，一般不需要设置，`device-height` 的作用不再赘述
 * `initial-scale`：初始缩放比例，也即是当页面第一次 load 的时候缩放比例
 * `maximum-scale`：允许用户缩放到的最大比例
 * `minimum-scale`：允许用户缩放到的最小比例
 * `user-scalable`：用户是否可以手动缩放，如果需要禁止用户缩放则设置为`user-scalable=no`，如无特殊需要，一般不推荐禁止用户缩放
 
 ####参考
-* [Mozilla 开发者上的 viewport 使用教程](https://developer.mozilla.org/en/Mobile/Viewport_meta_tag)
-* [Apple 开发者网站资料](http://developer.apple.com/library/safari/#documentation/AppleApplications/Reference/SafariWebContent/UsingtheViewport/UsingtheViewport.html)
+* [Mozilla 开发者网站](https://developer.mozilla.org/en/Mobile/Viewport_meta_tag)
+* [Apple 开发者网站](http://developer.apple.com/library/safari/#documentation/AppleApplications/Reference/SafariWebContent/UsingtheViewport/UsingtheViewport.html)
 * [quirksmode.org上的 viewport 在各个手机浏览器不同之处](http://www.quirksmode.org/mobile/viewports2.html)
 
 ### 为移动设备设置桌面图标
