@@ -20,7 +20,8 @@
 HTML5 新增的表单类型会大大提升用户在填写表单时输入体验，例如指定输入类型为`email`，那么输入法会把 @ 符号放到键盘首页，用户不必再切到符号键盘里找它，其它常用新增的表单类型如下：
 
 * url：url网址
-* date：日期
+* date：年月日
+* datetime：年月日和时间
 * time：时间
 * month：月份
 * week：周
@@ -30,6 +31,7 @@ HTML5 新增的表单类型会大大提升用户在填写表单时输入体验�
 
 ####参考
 [w3schools](http://www.w3schools.com/tags/tag_input.asp)
+[苹果官方文档](https://developer.apple.com/library/safari/documentation/AppleApplications/Reference/SafariHTMLRef/Articles/InputTypes.html#//apple_ref/doc/uid/TP40008055-SW1)
 
 ## CSS
 ### 字体设置
