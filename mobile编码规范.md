@@ -30,8 +30,9 @@ HTML5 新增的表单类型会大大提升用户在填写表单时输入体验�
 * search：搜索框
 
 ####参考
-[w3schools](http://www.w3schools.com/tags/tag_input.asp)
-[苹果官方文档](https://developer.apple.com/library/safari/documentation/AppleApplications/Reference/SafariHTMLRef/Articles/InputTypes.html#//apple_ref/doc/uid/TP40008055-SW1)
+
+* [w3schools](http://www.w3schools.com/tags/tag_input.asp)
+* [苹果官方文档](https://developer.apple.com/library/safari/documentation/AppleApplications/Reference/SafariHTMLRef/Articles/InputTypes.html#//apple_ref/doc/uid/TP40008055-SW1)
 
 ## CSS
 ### 字体设置
