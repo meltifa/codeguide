@@ -11,6 +11,26 @@
 
 为每个 HTML 页面的第一行添加标准模式（standard mode）的声明，这样能够确保在每个浏览器中拥有一致的展现。
 
+### 使用 HTML5 新增的表单类型优化移动设备体验
+
+```html
+<input type="email">
+```
+
+HTML5 新增的表单类型会大大提升用户在填写表单时输入体验，例如指定输入类型为`email`，那么输入法会把 @ 符号放到键盘首页，用户不必再切到符号键盘里找它，其它常用新增的表单类型如下：
+
+* url：url网址
+* date：日期
+* time：时间
+* month：月份
+* week：周
+* number：数字
+* tel：电话号码
+* search：搜索框
+
+####参考
+[w3schools](http://www.w3schools.com/tags/tag_input.asp)
+
 ## CSS
 ### 字体设置
 
