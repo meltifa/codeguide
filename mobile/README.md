@@ -83,8 +83,24 @@ Heiti TC Medium 黑体-繁 中黑
 
 ### 使用 `image-set` 而不是 `media queries` 来区分视网膜图像
 
-一句话，`image-set` 比 `media queries` 更简单高效易于维护。
+```css
+.selector {
+  background-image: url('../img/image-1x.jpg';/* 普通屏幕 */ 
+  background-image: -webkit-image-set(url('../img/image-1x.jpg') 1x, url('../img/image-2x.jpg') 2x);/* Retina */
+}
+```
+
+CSS 中的 `image-set` 比 `media queries` 更简单高效易于维护。
+
+```html
+<img src="images/high.png" srcset="images/low.png 1x,images/high.png 2x" width="100" height="100">
+```
+high.png = 200x200， low.png = 100x100
+
+HTML 的 `srcset` 方案目前仅支持 Chrome 34+，不过也可以在项目中预先使用，不支持 srcset 的浏览器会载入 src 里面的图像。
 
 #### 参考阅读
-[CSS 与 HTML5 响应式图片](http://www.iyunlu.com/view/Front-end/70.html)
-[image-set 实现 Retina 屏幕下图片显示](http://www.w3cplus.com/css/safari-6-and-chrome-21-add-image-set-to-support-retina-images.html)
+
+* [CSS 与 HTML5 响应式图片](http://www.iyunlu.com/view/Front-end/70.html)
+* [image-set 实现 Retina 屏幕下图片显示](http://www.w3cplus.com/css/safari-6-and-chrome-21-add-image-set-to-support-retina-images.html)
+* [srcset 属性获 Chrome 34 支持](http://www.qianduan.net/srcset-shu-xing-huo-chrome-34-zhi-chi-da-zan.html)
