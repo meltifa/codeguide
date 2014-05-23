@@ -29,7 +29,7 @@ HTML5 新增的表单类型会大大提升用户在填写表单时输入体验�
 * tel：电话号码
 * search：搜索框
 
-####参考
+#### 参考
 
 * [w3schools](http://www.w3schools.com/tags/tag_input.asp)
 * [苹果官方文档](https://developer.apple.com/library/safari/documentation/AppleApplications/Reference/SafariHTMLRef/Articles/InputTypes.html#//apple_ref/doc/uid/TP40008055-SW1)
@@ -80,3 +80,11 @@ Heiti TC Medium 黑体-繁 中黑
 4. 在网站中大规模使用
 
 [在线转换工具](http://webcodertools.com/imagetobase64converter)
+
+### 使用 `image-set` 而不是 `media queries` 来区分视网膜图像
+
+一句话，`image-set` 比 `media queries` 更简单高效易于维护。
+
+#### 参考阅读
+[CSS 与 HTML5 响应式图片](http://www.iyunlu.com/view/Front-end/70.html)
+[image-set 实现 Retina 屏幕下图片显示](http://www.w3cplus.com/css/safari-6-and-chrome-21-add-image-set-to-support-retina-images.html)
