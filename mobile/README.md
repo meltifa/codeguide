@@ -94,8 +94,8 @@ CSS 中的 `image-set` 比 `media queries` 更简单高效易于维护。
 
 ```html
 <img src="images/high.png" srcset="images/low.png 1x,images/high.png 2x" width="100" height="100">
+<!--high.png = 200x200 low.png = 100x100-->
 ```
-high.png = 200x200， low.png = 100x100
 
 HTML 的 `srcset` 方案目前仅支持 Chrome 34+，不过也可以在项目中预先使用，不支持 srcset 的浏览器会载入 src 里面的图像。
 
