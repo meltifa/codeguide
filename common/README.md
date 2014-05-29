@@ -7,7 +7,6 @@
 * [字符编码](#字符编码)
 * [IE 兼容模式](#ie-兼容模式)
 * [实用为王](#实用为王)
-* [属性顺序](#属性顺序)
 * [布尔（boolean）型属性](#%E5%B8%83%E5%B0%94boolean%E5%9E%8B%E5%B1%9E%E6%80%A7)
 * [减少标签的数量](#减少标签的数量)
 * [JavaScript 生成的标签](#javascript-生成的标签)
@@ -15,7 +14,6 @@
 ### [CSS](#css-1)
 
 * [语法](#语法-1)
-* [声明顺序](#声明顺序)
 * [不要使用 @import](#%E4%B8%8D%E8%A6%81%E4%BD%BF%E7%94%A8-import)
 * [媒体查询（Media query）的位置](#%E5%AA%92%E4%BD%93%E6%9F%A5%E8%AF%A2media-query%E7%9A%84%E4%BD%8D%E7%BD%AE)
 * [带前缀的属性](#带前缀的属性)
@@ -88,29 +86,6 @@ IE 支持通过特定的 <meta> 标签来确定绘制当前页面所应该采用
 ### 实用为王
 
 尽量遵循 HTML 标准和语义，但是不要以牺牲实用性为代价。任何时候都要尽量使用最少的标签并保持最小的复杂度。
-
-### 属性顺序
-
-```html
-<a class="..." id="..." data-modal="toggle" href="#">
-  Example link
-</a>
-
-<input class="form-control" type="text">
-
-<img src="..." alt="...">
-```
-
-HTML 属性应当按照以下给出的顺序依次排列，确保代码的易读性。
-
-* class
-* id, name
-* data-*
-* src, for, type, href
-* title, alt
-* aria-*, role
-
-class 用于标识高度可复用组件，因此应该排在首位。id 用于标识具体组件，应当谨慎使用（例如，页面内的书签），因此排在第二位。
 
 ### 布尔（boolean）型属性
 
@@ -197,53 +172,6 @@ class 用于标识高度可复用组件，因此应该排在首位。id 用于�
 
 
 附Dreamweaver代码格式的设置，需要整理css的时候选择[命令]-[应用源格式]即可。
-
-### 声明顺序
-
-```css
-.declaration-order {
-  /* Positioning */
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  z-index: 100;
-
-  /* Box-model */
-  display: block;
-  float: right;
-  width: 100px;
-  height: 100px;
-
-  /* Typography */
-  font: normal 13px "Helvetica Neue", sans-serif;
-  line-height: 1.5;
-  color: #333;
-  text-align: center;
-
-  /* Visual */
-  background-color: #f5f5f5;
-  border: 1px solid #e5e5e5;
-  border-radius: 3px;
-
-  /* Misc */
-  opacity: 1;
-}
-```
-
-相关的属性声明应当归为一组，并按照下面的顺序排列：
-
-1. Positioning
-2. Display & Box model
-3. Typographic
-4. Visual
-
-由于定位（positioning）可以从正常的文档流中移除元素，并且还能覆盖盒模型（box model）相关的样式，因此排在首位。盒模型排在第二位，因为它决定了组件的尺寸和位置。
-
-其他属性只是影响组件的内部（inside）或者是不影响前两组属性，因此排在后面。
-
-完整的属性列表及其排列顺序请参考 [Recess](http://twitter.github.com/recess)。
 
 ### 不要使用 `@import`
 
