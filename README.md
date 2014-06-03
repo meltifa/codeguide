@@ -1,5 +1,5 @@
 1. [网页编码规范](https://github.com/meltifa/codeguide/tree/master/common)
-2. [移动端网页编码规范](https://github.com/meltifa/codeguide/tree/master/mobile)
+2. [移动端代码优化指南](https://github.com/meltifa/codeguide/tree/master/mobile)
 3. [iOS与Android平台上问题列表](https://github.com/AlloyTeam/Mars/tree/master/issues)
 4. [模拟原生效果实践](https://github.com/AlloyTeam/Mars/tree/master/solutions)
 5. [工具类方法汇总](https://github.com/AlloyTeam/Mars/tree/master/tools)
