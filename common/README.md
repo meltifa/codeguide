@@ -140,7 +140,7 @@ IE 支持通过特定的 <meta> 标签来确定绘制当前页面所应该采用
   margin:0px 0px 15px;
   background-color:rgba(0, 0, 0, 0.5);
   box-shadow:0px 1px 2px #CCC,inset 0 1px 0 #FFFFFF;
-  font-family: 宋体, 微软雅黑
+  font-family: 宋体, 微软雅黑;
 }
 
 /* Good CSS */
@@ -151,7 +151,7 @@ IE 支持通过特定的 <meta> 标签来确定绘制当前页面所应该采用
   margin-bottom: 15px;
   background-color: rgba(0,0,0,.5);
   box-shadow: 0 1px 2px #ccc, inset 0 1px 0 #fff;
-  font-family:simsun, "microsoft yahei"
+  font-family:simsun, "microsoft yahei";
 }
 ```
 
