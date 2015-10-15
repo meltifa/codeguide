@@ -139,7 +139,8 @@ IE 支持通过特定的 <meta> 标签来确定绘制当前页面所应该采用
   padding:15px;
   margin:0px 0px 15px;
   background-color:rgba(0, 0, 0, 0.5);
-  box-shadow:0px 1px 2px #CCC,inset 0 1px 0 #FFFFFF
+  box-shadow:0px 1px 2px #CCC,inset 0 1px 0 #FFFFFF;
+  font-family: 宋体, 微软雅黑
 }
 
 /* Good CSS */
@@ -150,9 +151,11 @@ IE 支持通过特定的 <meta> 标签来确定绘制当前页面所应该采用
   margin-bottom: 15px;
   background-color: rgba(0,0,0,.5);
   box-shadow: 0 1px 2px #ccc, inset 0 1px 0 #fff;
+  font-family:simsun, "microsoft yahei"
 }
 ```
 
+* css里的字体名用英文名来设置。如宋体用simsun，微软雅黑用microsoft yahei，注意带空格的字体名必须用引号括起来。
 * 用两个空格来代替制表符（tab） -- 这是唯一能保证在所有环境下获得一致展现的方法。
 * 为选择器分组时，将单独的选择器单独放在一行。
 * 为了代码的易读性，在每个声明块的左花括号前添加一个空格。
