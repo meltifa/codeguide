@@ -351,25 +351,43 @@ IE 支持通过特定的 <meta> 标签来确定绘制当前页面所应该采用
 
 常见class关键词：
 
- 布局类：header, footer, container, main, content, aside, page, section
- 包裹类：wrap, inner
- 区块类：region, block, box
- 结构类：hd, bd, ft, top, bottom, left, right, middle, col, row, grid, span
- 列表类：list, item, field
- 主次类：primary, secondary, sub, minor
- 大小类：large, small
- 状态类：active, current, checked, hover, fail, success, warn, error, on, off
- 导航类：nav, prev, next, breadcrumb, forward, back, indicator, paging, first, last
- 交互类：tips, alert, modal, pop, panel, tabs, accordion, slide, scroll, overlay, dialog
- 星级类：rate, star
- 分割类：group, seperate, divider
- 等分类：full, half, third, quarter
- 表格类：table, tr, td, cell, row
- 图片类：img, thumbnail, original, album, gallery
- 语言类：cn, en
- 论坛类：forum, bbs, topic, post, avatar
- 方向类：up, down, left, right
- 其他语义类：btn, close, ok, cancel, switch; link, title, info, intro, more, icon; form, label, search, contact, phone, date, email, user; view, loading...
+布局类：header, footer, container, main, content, aside, page, section
+
+包裹类：wrap, inner
+
+区块类：region, block, box
+
+结构类：hd, bd, ft, top, bottom, left, right, middle, col, row, grid, span
+
+列表类：list, item, field
+
+主次类：primary, secondary, sub, minor
+
+大小类：large, small
+
+状态类：active, current, checked, hover, fail, success, warn, error, on, off
+
+导航类：nav, prev, next, breadcrumb, forward, back, indicator, paging, first, last
+
+交互类：tips, alert, modal, pop, panel, tabs, accordion, slide, scroll, overlay, dialog
+
+星级类：rate, star
+
+分割类：group, seperate, divider
+
+等分类：full, half, third, quarter
+
+表格类：table, tr, td, cell, row
+
+图片类：img, thumbnail, original, album, gallery
+
+语言类：cn, en
+
+论坛类：forum, bbs, topic, post, avatar
+
+方向类：up, down, left, right
+
+其他语义类：btn, close, ok, cancel, switch; link, title, info, intro, more, icon; form, label, search, contact, phone, date, email, user; view, loading...
 
 ### 选择器
 
