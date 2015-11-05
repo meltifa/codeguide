@@ -155,26 +155,17 @@ IE 支持通过特定的 <meta> 标签来确定绘制当前页面所应该采用
 }
 ```
 
-* css里的字体名用英文名来设置。如宋体用simsun，微软雅黑用microsoft yahei，注意带空格的字体名必须用引号括起来。
-* 用两个空格来代替制表符（tab） -- 这是唯一能保证在所有环境下获得一致展现的方法。
-* 为选择器分组时，将单独的选择器单独放在一行。
-* 为了代码的易读性，在每个声明块的左花括号前添加一个空格。
-* 声明块的右花括号应当单独成行。
-* 每条声明语句的 : 后应该插入一个空格。
-* 为了获得更准确的错误报告，每条声明都应该独占一行。
+* css里的字体名用英文名来设置，中文名可能会有编码问题导致字体设置失效。如宋体用simsun，微软雅黑用microsoft yahei，注意带空格的字体名必须用引号括起来。
+* 在代码完成后应该用格式化工具来保证你的代码缩进换行等风格统一，如Sublime Text插件CSS Format。WebStorm、Dreamweaver等IDE也内建了格式化代码功能。
 * 所有声明语句都应当以分号结尾。最后一条声明语句后面的分号是可选的，但是，如果省略这个分号，你的代码可能更易出错。
 * 对于以逗号分隔的属性值，每个逗号后面都应该插入一个空格（例如，`box-shadow`）。
-* 不要在 `rgb()`、`rgba()`、`hsl()`、`hsla()` 或 `rect()` 值的内部的逗号后面插入空格。这样利于从多个属性值（既加逗号也加空格）中区分多个颜色值（只加逗号，不加空格）。
 * 对于属性值或颜色参数，省略小于 1 的小数前面的 0 （例如，.5 代替 0.5；-.5px 代替 -0.5px）。
 * 十六进制值应该全部小写，例如，`#fff`。在扫描文档时，小写字符易于分辨，因为他们的形式更易于区分。
 * 尽量使用简写形式的十六进制值，例如，用 `#fff` 代替 `#ffffff`。
-* 为选择器中的属性添加双引号，例如，`input[type="text"]`。只有在某些情况下是可选的，但是，为了代码的一致性，建议都加上双引号。
+* 为选择符中的属性添加双引号，例如，`input[type="text"]`。只有在某些情况下是可选的，但是，为了代码的一致性，建议都加上双引号。
 * 避免为 0 值指定单位，例如，用 `margin: 0;` 代替 `margin: 0px;`。
 * 避免 `!important`，其实你应该也可以使用其他优质的选择器。
 * 对于这里用到的术语有疑问吗？请参考 Wikipedia 上的 syntax section of the Cascading Style Sheets article。
-
-
-附Dreamweaver代码格式的设置，需要整理css的时候选择[命令]-[应用源格式]即可。
 
 ### 不要使用 `@import`
 
@@ -188,13 +179,14 @@ IE 支持通过特定的 <meta> 标签来确定绘制当前页面所应该采用
 </style>
 ```
 
-与 `<link>` 标签相比，`@import` 指令要慢很多，不光增加了额外的请求次数，还会导致不可预料的问题。替代办法有以下几种：
+与 `<link>` 标签相比，`@import` 指令要慢很多，它会在页面其他资源加载完毕才开始加载，在慢速网络中尤其明显，可能会导致样式闪动，替代方案如下：
 
 * 使用多个 `<link>` 元素
 * 通过 Sass 或 Less 类似的 CSS 预处理器将多个 CSS 文件编译为一个文件
-* 通过 Rails、Jekyll 或其他系统中提供过 CSS 文件合并功能
 
 ### 媒体查询（Media query）的位置
+
+将媒体查询放在尽可能相关规则的附近。不要将他们打包放在一个单一样式文件中或者放在文档底部。如果你把他们分开了，将来只会被大家遗忘。下面给出一个典型的实例。
 
 ```css
 .element { ... }
@@ -207,8 +199,6 @@ IE 支持通过特定的 <meta> 标签来确定绘制当前页面所应该采用
   .element-selected { ... }
 }
 ```
-
-将媒体查询放在尽可能相关规则的附近。不要将他们打包放在一个单一样式文件中或者放在文档底部。如果你把他们分开了，将来只会被大家遗忘。下面给出一个典型的实例。
 
 ### 带前缀的属性
 
@@ -242,11 +232,9 @@ IE 支持通过特定的 <meta> 标签来确定绘制当前页面所应该采用
 .icon-account   { background-position: 0 -40px; }
 ```
 
-对于只包含一条声明的样式，为了易读性和便于快速编辑，建议将语句放在同一行。对于带有多条声明的样式，还是应当将声明分为多行。
+对于只包含一条声明的样式，可以将语句放在同一行。对于带有多条声明的样式，还是应当将声明分为多行。
 
-这样做的关键因素是为了错误检测 -- 例如，CSS 校验器指出在 183 行有语法错误。如果是单行声明，你就不会忽略这个错误；如果是多行声明的话，你就要仔细分析了。
-
-附 Dreamweaver 代码格式的设置，需要整理css的时候选择[命令]-[应用源格式]即可。
+这样做的关键因素是为了错误检测 -- 例如，CSS 校验器指出在 183 行有语法错误。这种情况多行比单行更容易定位问题所在。
 
 ### 简写形式的属性声明
 
@@ -254,33 +242,23 @@ IE 支持通过特定的 <meta> 标签来确定绘制当前页面所应该采用
 /* Bad example */
 .element {
   margin: 0 0 10px;
+  padding-bottom: 10px;
+  padding-right: 10px;
+  padding-top: 10px;
   background: red;
   background: url("image.jpg");
-  border-radius: 3px 3px 0 0;
 }
 
 /* Good example */
 .element {
   margin-bottom: 10px;
+  padding: 10px 10px 10px 0;
   background-color: red;
   background-image: url("image.jpg");
-  border-top-left-radius: 3px;
-  border-top-right-radius: 3px;
 }
 ```
 
-在需要显示地设置所有值的情况下，应当尽量限制使用简写形式的属性声明。常见的滥用简写属性声明的情况如下：
-
-* padding
-* margin
-* font
-* background
-* border
-* border-radius
-
-大部分情况下，我们不需要为简写形式的属性声明指定所有值。例如，HTML 的 heading 元素只需要设置上、下边距（margin）的值，因此，在必要的时候，只需覆盖这两个值就可以。过度使用简写形式的属性声明会导致代码混乱，并且会对属性值带来不必要的覆盖从而引起意外的副作用。
-
-MDN（Mozilla Developer Network）上一片非常好的关于[shorthand properties](https://developer.mozilla.org/en-US/docs/Web/CSS/Shorthand_properties) 的文章，对于不太熟悉简写属性声明及其行为的用户很有用。
+合理使用简写属性声明，同时也要避免滥用简写，在使用简写时要注意一些没有被声明出来的值也有可能被覆盖。比如 `background`，`font` 等
 
 ### 尽可能精简规则
 
@@ -367,12 +345,34 @@ MDN（Mozilla Developer Network）上一片非常好的关于[shorthand properti
 .tweet-header { ... }
 ```
 
-* class 名称中只能出现小写字符和破折号（dashe）（不是下划线，也不是驼峰命名法）。破折号应当用于相关 class 的命名（类似于命名空间）（例如，.btn 和 .btn-danger）。
+* class 名称必须是英文单词或产品名称的拼音，只能出现小写字母和破折号（dashe）（不是下划线，也不是驼峰命名法）。破折号应当用于相关 class 的命名（类似于命名空间）（例如，.btn 和 .btn-danger）。
 * 避免过度任意的简写。.btn 代表 button，但是 .s 不能表达任何意思。
 * class 名称应当尽可能短，并且意义明确。
-* 使用有意义的名称。使用有组织的或目的明确的名称，不要使用表现形式（presentational）的名称。
+* 使用有意义的名称。使用有组织的或目的明确的名称，不要使用表现形式（presentational）的名称，如 .mt20，.pr30，fz12 等。
 * 基于最近的父 class 或基本（base） class 作为新 class 的前缀。
 * 在为 Sass 和 Less 变量命名是也可以参考上面列出的各项规范。
+
+常见class关键词：
+
+ 布局类：header, footer, container, main, content, aside, page, section
+ 包裹类：wrap, inner
+ 区块类：region, block, box
+ 结构类：hd, bd, ft, top, bottom, left, right, middle, col, row, grid, span
+ 列表类：list, item, field
+ 主次类：primary, secondary, sub, minor
+ 大小类：large, small
+ 状态类：active, current, checked, hover, fail, success, warn, error, on, off
+ 导航类：nav, prev, next, breadcrumb, forward, back, indicator, paging, first, last
+ 交互类：tips, alert, modal, pop, panel, tabs, accordion, slide, scroll, overlay, dialog
+ 星级类：rate, star
+ 分割类：group, seperate, divider
+ 等分类：full, half, third, quarter
+ 表格类：table, tr, td, cell, row
+ 图片类：img, thumbnail, original, album, gallery
+ 语言类：cn, en
+ 论坛类：forum, bbs, topic, post, avatar
+ 方向类：up, down, left, right
+ 其他语义类：btn, close, ok, cancel, switch; link, title, info, intro, more, icon; form, label, search, contact, phone, date, email, user; view, loading...
 
 ### 选择器
 
