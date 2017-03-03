@@ -65,7 +65,7 @@
 ### lang属性
 
 HTML5规范建议html标签上加上lang属性。这会给语音工具和翻译工具帮助，告诉它们应当怎么去发音和翻译。
-一些编辑器会自动生成lang属性为en-us，请及时改为zh-cn。
+一些编辑器会自动生成lang属性为en-us，请及时修改为zh-cn。
 
 ```html
 <!DOCTYPE html>
@@ -98,6 +98,15 @@ IE 支持通过特定的 <meta> 标签来确定绘制当前页面所应该采用
 
 尽量遵循 HTML 标准和语义，但是不要以牺牲实用性为代价。任何时候都要尽量使用最少的标签并保持最小的复杂度。
 
+### 引入CSS, JS
+
+```html
+<link rel="stylesheet" href="code_guide.css">
+<script src="code_guide.js"></script>
+```
+
+根据HTML5规范, 通常在引入CSS和JS时不需要指明 type，因为 text/css 和 text/javascript 分别是他们的默认值。
+
 ### 布尔（boolean）型属性
 
 ```html
@@ -113,14 +122,6 @@ IE 支持通过特定的 <meta> 标签来确定绘制当前页面所应该采用
 布尔型属性可以在声明时不赋值。XHTML 规范要求为其赋值，但是 HTML5 规范不需要。
 
 [更多信息请参考 WhatWG section on boolean attributes](http://www.whatwg.org/specs/web-apps/current-work/multipage/common-microsyntaxes.html#boolean-attributes)
-
-> 元素的布尔型属性如果有值，就是 true，如果没有值，就是 false。
-
-如果一定要为其赋值的话，请参考 WhatWG 规范：
-
-> 如果属性存在，其值必须是空字符串或 [...] 属性的规范名称，并且不要再收尾添加空白符。
-
-简单来说，就是不用赋值。
 
 ### 减少标签的数量
 
@@ -139,6 +140,22 @@ IE 支持通过特定的 <meta> 标签来确定绘制当前页面所应该采用
 ### JavaScript 生成的标签
 
 通过 JavaScript 生成的标签让内容变得不易查找、编辑，并且降低性能。能避免时尽量避免。
+
+### 属性顺序
+
+属性应该按照特定的顺序出现以保证易读性；
+
+* class
+* id
+* name
+* data-*
+* src, for, type, href, value , max-length, max, min, pattern
+* placeholder, title, alt
+* aria-*, role
+* required, readonly, disabled
+
+class是为高可复用组件设计的，所以应处在第一位；
+id更加具体且应该尽量少使用，所以将它放在第二位。
 
 ## CSS
 
@@ -165,10 +182,9 @@ IE 支持通过特定的 <meta> 标签来确定绘制当前页面所应该采用
   font-family:simsun, "microsoft yahei";
 }
 ```
-
+* 使用soft tab（4个空格）。
+* 每个属性声明末尾都要加分号。
 * css里的字体名用英文名来设置，中文名可能会有编码问题导致字体设置失效。如宋体用simsun，微软雅黑用microsoft yahei，注意带空格的字体名必须用引号括起来。
-* 在代码完成后应该用格式化工具来保证你的代码缩进换行等风格统一，如Sublime Text插件CSS Format。WebStorm、Dreamweaver等IDE也内建了格式化代码功能。
-* 所有声明语句都应当以分号结尾。最后一条声明语句后面的分号是可选的，但是，如果省略这个分号，你的代码可能更易出错。
 * 对于以逗号分隔的属性值，每个逗号后面都应该插入一个空格（例如，`box-shadow`）。
 * 对于属性值或颜色参数，省略小于 1 的小数前面的 0 （例如，.5 代替 0.5；-.5px 代替 -0.5px）。
 * 十六进制值应该全部小写，例如，`#fff`。在扫描文档时，小写字符易于分辨，因为他们的形式更易于区分。
@@ -176,7 +192,43 @@ IE 支持通过特定的 <meta> 标签来确定绘制当前页面所应该采用
 * 为选择符中的属性添加双引号，例如，`input[type="text"]`。只有在某些情况下是可选的，但是，为了代码的一致性，建议都加上双引号。
 * 避免为 0 值指定单位，例如，用 `margin: 0;` 代替 `margin: 0px;`。
 * 避免 `!important`，其实你应该也可以使用其他优质的选择器。
-* 对于这里用到的术语有疑问吗？请参考 Wikipedia 上的 syntax section of the Cascading Style Sheets article。
+
+### 空格
+
+```css
+.element  > .dialog {
+    color: red !important;
+    background-color: rgba(0, 0, 0, .5);
+}
+```
+
+以下几种情况需要空格：
+
+* 属性值前
+* 选择器'>', '+', '~'前后
+* '{'前
+* !important '!'前
+* @else 前后
+* 属性值中的','后
+* 注释'/*'后和'*/'前
+
+### 空行
+
+* 文件最后保留一个空行
+* '}'后最好跟一个空行，包括scss中嵌套的规则
+* 属性之间需要适当的空行，具体见属性声明顺序
+
+### 换行
+
+以下几种情况不需要换行：
+
+* '{'前
+
+以下几种情况需要换行：
+
+* '{'后和'}'前
+* 每个属性独占一行
+* 多个规则的分隔符','后
 
 ### 不要使用 `@import`
 
