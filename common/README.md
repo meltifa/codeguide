@@ -230,6 +230,21 @@ id更加具体且应该尽量少使用，所以将它放在第二位。
 * 每个属性独占一行
 * 多个规则的分隔符','后
 
+### 引号
+```css
+.element:after {
+    content: '';
+    background-image: url('logo.png');
+}
+
+li[data-type='single'] {
+    ...
+}
+```
+最外层统一使用单引号；
+url的内容要用引号；
+属性选择器中的属性值需要引号。
+
 ### 不要使用 `@import`
 
 ```css
@@ -263,41 +278,26 @@ id更加具体且应该尽量少使用，所以将它放在第二位。
 }
 ```
 
-### 带前缀的属性
+### 颜色
 
 ```css
-/* Prefixed properties */
-.selector {
-  -webkit-box-shadow: 0 1px 2px rgba(0,0,0,.15);
-          box-shadow: 0 1px 2px rgba(0,0,0,.15);
+/* not good */
+.element {
+    color: #ABCDEF;
+    background-color: #001122;
+}
+
+/* good */
+.element {
+    color: #abcdef;
+    background-color: #012;
 }
 ```
 
-当使用特定厂商的带有前缀的属性时，最后一行必须有不带前缀的标准 CSS3 属性，有些现代浏览器只支持不带前缀的 CSS3 属性，如 IE10 &amp; 11。
+颜色16进制用小写字母；
 
-### 单行规则声明
+颜色16进制尽量用简写。
 
-```css
-/* Single declarations on one line */
-.span1 { width: 60px; }
-.span2 { width: 140px; }
-.span3 { width: 220px; }
-
-/* Multiple declarations, one per line */
-.sprite {
-  display: inline-block;
-  width: 16px;
-  height: 15px;
-  background-image: url(../img/sprite.png);
-}
-.icon           { background-position: 0 0; }
-.icon-home      { background-position: 0 -20px; }
-.icon-account   { background-position: 0 -40px; }
-```
-
-对于只包含一条声明的样式，可以将语句放在同一行。对于带有多条声明的样式，还是应当将声明分为多行。
-
-这样做的关键因素是为了错误检测 -- 例如，CSS 校验器指出在 183 行有语法错误。这种情况多行比单行更容易定位问题所在。
 
 ### 简写形式的属性声明
 
@@ -321,7 +321,7 @@ id更加具体且应该尽量少使用，所以将它放在第二位。
 }
 ```
 
-合理使用简写属性声明，同时也要避免滥用简写，在使用简写时要注意一些没有被声明出来的值也有可能被覆盖。比如 `background`，`font` 等
+合理使用简写属性声明，同时也要避免滥用简写，在使用简写时要注意一些没有被声明出来的值也有可能被覆盖。比如 `background`，`font` 等，建议margin和padding使用简写，其他属性分开
 
 ### 尽可能精简规则
 
@@ -356,21 +356,54 @@ id更加具体且应该尽量少使用，所以将它放在第二位。
 
 尽可能合并不同类里的重复的规则
 
-### Less 和 Sass 中的嵌套
-
+### SCSS相关
 ```css
-// Without nesting
-.table > thead > tr > th { … }
-.table > thead > tr > td { … }
+/* not good */
+@import "_dialog.scss";
 
-// With nesting
-.table > thead > tr {
-  > th { … }
-  > td { … }
+/* good */
+@import "dialog";
+
+/* not good */
+.fatal {
+    @extend .error;
+}
+
+/* good */
+.fatal {
+    @extend %error;
+}
+
+/* not good */
+.element {
+    & > .dialog {
+        ...
+    }
+}
+
+/* good */
+.element {
+    > .dialog {
+        ...
+    }
 }
 ```
+提交的代码中不要有 @debug；
 
-避免非必要的嵌套。这是因为虽然你可以使用嵌套，但是并不意味着应该使用嵌套。只有在必须将样式限制在父元素内（也就是后代选择器），并且存在多个需要嵌套的元素时才使用嵌套。
+声明顺序：
+
+@extend
+不包含 @content 的 @include
+包含 @content 的 @include
+自身属性
+嵌套规则
+@import 引入的文件不需要开头的'_'和结尾的'.scss'；
+
+嵌套最多不能超过4层；
+
+@extend 中使用placeholder选择器；
+
+去掉不必要的父级引用符号'&'。
 
 ### 注释
 
@@ -394,7 +427,7 @@ id更加具体且应该尽量少使用，所以将它放在第二位。
 
 对于外部独立的 js 或 css 文件，在使用中文注释时要保证文件和引用页面的编码完全一致，否则 IE6 下会出现代码无法解析的BUG！
 
-### class 命名
+### css 命名
 
 ```css
 /* Bad example */
@@ -406,14 +439,23 @@ id更加具体且应该尽量少使用，所以将它放在第二位。
 .tweet { ... }
 .important { ... }
 .tweet-header { ... }
+/* 变量 */
+$colorBlack: #000;
+/* 函数 */
+@function pxToRem($px) {
+    ...
+}
+/* 混合 */
+@mixin centerBlock {
+    ...
+}
 ```
 
-* class 名称必须是英文单词或产品名称的拼音，只能出现小写字母和破折号（dashe）（不是下划线，也不是驼峰命名法）。破折号应当用于相关 class 的命名（类似于命名空间）（例如，.btn 和 .btn-danger）。
+* class 名称必须是英文单词或产品名称的拼音，只能出现小写字母和中划线。中划线应当用于相关 class 的命名（类似于命名空间）（例如，.btn 和 .btn-danger）。
 * 避免过度任意的简写。.btn 代表 button，但是 .s 不能表达任何意思。
 * class 名称应当尽可能短，并且意义明确。
 * 使用有意义的名称。使用有组织的或目的明确的名称，不要使用表现形式（presentational）的名称，如 .mt20，.pr30，fz12 等。
-* 基于最近的父 class 或基本（base） class 作为新 class 的前缀。
-* 在为 Sass 和 Less 变量命名是也可以参考上面列出的各项规范。
+* scss中的变量、函数、混合、placeholder采用驼峰式命名
 
 常见class关键词：
 
@@ -511,3 +553,22 @@ ul#someid { ... }
 * 制定一致的注释规范。
 * 使用一致的空白符将代码分隔成块，这样利于扫描较大的文档。
 * 如果使用了多个 CSS 文件，将其按照组件而非页面的形式分拆，因为页面会被重组，而组件只会被移动。
+
+### 杂项
+
+不允许有空的规则；
+只书写不带前缀的属性，前缀由编译工具自动添加；
+元素选择器用小写字母；
+去掉小数点前面的0；
+去掉数字中不必要的小数点和末尾的0；
+属性值'0'后面不要加单位；
+不要在同个规则里出现重复的属性，如果重复的属性是连续的则没关系；
+不要在一个文件里出现两个相同的规则；
+
+用 border: 0; 代替 border: none;；
+
+选择器不要超过4层（在scss中如果超过4层应该考虑用嵌套的方式来写）；
+
+发布的代码中不要有 @import；
+
+尽量少用'*'选择器。
