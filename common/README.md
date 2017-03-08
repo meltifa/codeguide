@@ -31,15 +31,15 @@
 ### 语法
 
 ```html
-<!doctype html>
+<!DOCTYPE html>
 <html>
-  <head>
-    <title>Page title</title>
-  </head>
-  <body>
-    <img src="images/company-logo.png" alt="Company">
-    <h1 class="hello-world">Hello, world!</h1>
-  </body>
+    <head>
+        <title>Page title</title>
+    </head>
+    <body>
+        <img src="images/company-logo.png" alt="Company">
+        <h1 class="hello-world">Hello, world!</h1>
+    </body>
 </html>
 ```
 * 缩进使用soft tab（4个空格）；
