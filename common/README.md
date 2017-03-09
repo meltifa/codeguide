@@ -8,7 +8,7 @@
 * [IE 兼容模式](#ie-兼容模式)
 * [字符编码](#字符编码)
 * [实用为王](#实用为王)
-* [引入CSS, JS](#引入css，js)
+* [引入CSSJS](#引入cssjs)
 * [布尔（boolean）型属性](#%E5%B8%83%E5%B0%94boolean%E5%9E%8B%E5%B1%9E%E6%80%A7)
 * [减少标签的数量](#减少标签的数量)
 * [JavaScript 生成的标签](#javascript-生成的标签)
@@ -99,7 +99,7 @@ IE 支持通过特定的 <meta> 标签来确定绘制当前页面所应该采用
 
 尽量遵循 HTML 标准和语义，但是不要以牺牲实用性为代价。任何时候都要尽量使用最少的标签并保持最小的复杂度。
 
-### 引入CSS，JS
+### 引入CSSJS
 
 ```html
 <link rel="stylesheet" href="code_guide.css">
