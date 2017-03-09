@@ -28,8 +28,7 @@
 
 ## HTML
 
-### 语法
-
+### 语法和格式
 ```html
 <!DOCTYPE html>
 <html>
@@ -42,7 +41,7 @@
     </body>
 </html>
 ```
-* 缩进使用soft tab（4个空格）；
+* 缩进使用soft tab（2个空格）；
 * 嵌套的节点应该缩进；
 * 对于属性的定义，确保全部使用双引号，不要使用单引号；
 * 属性名全小写，用中划线做分隔符；
@@ -135,32 +134,15 @@ IE 支持通过特定的 <meta> 标签来确定绘制当前页面所应该采用
 <img class="avatar" src="...">
 ```
 
-编写 HTML 代码时，尽量避免多余的父元素。很多时候，这需要迭代和重构来实现。
+编写 HTML 代码时，尽量避免多余的父元素。
 
 ### JavaScript 生成的标签
 
 通过 JavaScript 生成的标签让内容变得不易查找、编辑，并且降低性能。能避免时尽量避免。
 
-### 属性顺序
-
-属性应该按照特定的顺序出现以保证易读性；
-
-* class
-* id
-* name
-* data-*
-* src, for, type, href, value , max-length, max, min, pattern
-* placeholder, title, alt
-* aria-*, role
-* required, readonly, disabled
-
-class是为高可复用组件设计的，所以应处在第一位；
-id更加具体且应该尽量少使用，所以将它放在第二位。
-
 ## CSS
 
-### 语法
-
+### 语法及格式
 ```css
 /* Bad CSS */
 .selector, .selector-secondary, .selector[type=text] {
@@ -174,7 +156,7 @@ id更加具体且应该尽量少使用，所以将它放在第二位。
 /* Good CSS */
 .selector,
 .selector-secondary,
-.selector[type="text"] {
+.selector[type='text'] {
   padding: 15px;
   margin-bottom: 15px;
   background-color: rgba(0,0,0,.5);
@@ -182,16 +164,14 @@ id更加具体且应该尽量少使用，所以将它放在第二位。
   font-family:simsun, "microsoft yahei";
 }
 ```
-* 使用soft tab（4个空格）。
-* 每个属性声明末尾都要加分号。
-* css里的字体名用英文名来设置，中文名可能会有编码问题导致字体设置失效。如宋体用simsun，微软雅黑用microsoft yahei，注意带空格的字体名必须用引号括起来。
-* 对于以逗号分隔的属性值，每个逗号后面都应该插入一个空格（例如，`box-shadow`）。
-* 对于属性值或颜色参数，省略小于 1 的小数前面的 0 （例如，.5 代替 0.5；-.5px 代替 -0.5px）。
-* 十六进制值应该全部小写，例如，`#fff`。在扫描文档时，小写字符易于分辨，因为他们的形式更易于区分。
+* 缩进使用soft tab（2个空格）。
+* 每条属性声明末尾都要加分号。
+* 省略小于 1 的小数前面的 0 （例如，.5 代替 0.5；-.5px 代替 -0.5px）。
+* 十六进制值应该全部小写，例如，`#fff`。
 * 尽量使用简写形式的十六进制值，例如，用 `#fff` 代替 `#ffffff`。
-* 为选择符中的属性添加双引号，例如，`input[type="text"]`。只有在某些情况下是可选的，但是，为了代码的一致性，建议都加上双引号。
+* 统一使用单引号。
 * 避免为 0 值指定单位，例如，用 `margin: 0;` 代替 `margin: 0px;`。
-* 避免 `!important`，其实你应该也可以使用其他优质的选择器。
+* 尽量避免 `!important`，其实你应该也可以使用其他优质的选择器。
 
 ### 空格
 
@@ -209,14 +189,13 @@ id更加具体且应该尽量少使用，所以将它放在第二位。
 * '{'前
 * !important '!'前
 * @else 前后
-* 属性值中的','后
+* 属性值中的','后（例如，`rgba(0, 0, 0, 0.5)`）
 * 注释'/*'后和'*/'前
 
 ### 空行
 
 * 文件最后保留一个空行
-* '}'后最好跟一个空行，包括scss中嵌套的规则
-* 属性之间需要适当的空行，具体见属性声明顺序
+* '}'后跟一个空行，包括scss中嵌套的规则
 
 ### 换行
 
@@ -230,20 +209,6 @@ id更加具体且应该尽量少使用，所以将它放在第二位。
 * 每个属性独占一行
 * 多个规则的分隔符','后
 
-### 引号
-```css
-.element:after {
-    content: '';
-    background-image: url('logo.png');
-}
-
-li[data-type='single'] {
-    ...
-}
-```
-最外层统一使用单引号；
-url的内容要用引号；
-属性选择器中的属性值需要引号。
 
 ### 不要使用 `@import`
 
@@ -278,27 +243,6 @@ url的内容要用引号；
 }
 ```
 
-### 颜色
-
-```css
-/* not good */
-.element {
-    color: #ABCDEF;
-    background-color: #001122;
-}
-
-/* good */
-.element {
-    color: #abcdef;
-    background-color: #012;
-}
-```
-
-颜色16进制用小写字母；
-
-颜色16进制尽量用简写。
-
-
 ### 简写形式的属性声明
 
 ```css
@@ -309,7 +253,7 @@ url的内容要用引号；
   padding-right: 10px;
   padding-top: 10px;
   background: red;
-  background: url("image.jpg");
+  background: url(image.jpg);
 }
 
 /* Good example */
@@ -317,7 +261,7 @@ url的内容要用引号；
   margin-bottom: 10px;
   padding: 10px 10px 10px 0;
   background-color: red;
-  background-image: url("image.jpg");
+  background-image: url(image.jpg);
 }
 ```
 
@@ -516,9 +460,8 @@ ul#someid { ... }
 #otherid { ... }
 ```
 
-* 对于通用元素使用 class ，这样利于渲染性能的优化。
-* 对于经常出现的组件，避免使用属性选择器（例如，`[class^="..."]）`。浏览器的性能会受到这些因素的影响。
-* 选择器要尽可能短，并且尽量限制组成选择器的元素个数，建议不要超过 3 。
+* 尽量使用 class 选择器。
+* 选择器要尽可能短，并且尽量限制组成选择器的元素个数，建议不要超过 3。
 * 只有在必要的时候才将 class 限制在最近的父元素内（也就是后代选择器）（例如，不使用带前缀的 class 时 -- 前缀类似于命名空间）。
 * 一条普遍规则，不要添加不必要的约束。（例如`ul#someid {...} .menu#otherid{...}`）
 
@@ -526,33 +469,6 @@ ul#someid { ... }
 
 * [Scope CSS classes with prefixes](http://markdotto.com/2012/02/16/scope-css-classes-with-prefixes/)
 * [Stop the cascade](http://markdotto.com/2012/03/02/stop-the-cascade/)
-
-### 代码组织
-
-```css
-/*
- * Component section heading
- */
-
-.element { ... }
-
-
-/*
- * Component section heading
- *
- * Sometimes you need to include optional context for the entire component. Do that up here if it's important enough.
- */
-
-.element { ... }
-
-/* Contextual sub-component or modifer */
-.element-heading { ... }
-```
-
-* 以组件为单位组织代码段。
-* 制定一致的注释规范。
-* 使用一致的空白符将代码分隔成块，这样利于扫描较大的文档。
-* 如果使用了多个 CSS 文件，将其按照组件而非页面的形式分拆，因为页面会被重组，而组件只会被移动。
 
 ### 杂项
 
@@ -562,13 +478,7 @@ ul#someid { ... }
 去掉小数点前面的0；
 去掉数字中不必要的小数点和末尾的0；
 属性值'0'后面不要加单位；
-不要在同个规则里出现重复的属性，如果重复的属性是连续的则没关系；
+不要在同个规则里出现重复的属性；
 不要在一个文件里出现两个相同的规则；
-
-用 border: 0; 代替 border: none;；
-
 选择器不要超过4层（在scss中如果超过4层应该考虑用嵌套的方式来写）；
-
-发布的代码中不要有 @import；
-
 尽量少用'*'选择器。
